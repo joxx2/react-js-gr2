@@ -1,19 +1,26 @@
-import String from "./components/Header/StringProps";
-import ObjectList from "./components/lists-array/ObjectList";
-import RenderList from "./components/lists-array/RenderList";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import SingleProduct from "./pages/SingleProduct";
+import Products from "./pages/Products";
+import Header from "./components/Header/Header";
 
 function App() {
-  const firstName = 'jon';
-  const lastName = 'hajredinaj';
+
 
   return (
-    <>
-
-      <String firstName={firstName} lastName={lastName} />
-      <RenderList />
-      <ObjectList />
-    </>
-
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
+      </Routes>
+    </div>
   )
 }
 
